@@ -1,5 +1,7 @@
 const fs = require("fs");
 const http = require("http");
+const path = require("path");
+const os = require("os");
 
 // Read file -- read content from a file
 
@@ -31,7 +33,8 @@ fs.writeFile("output.txt", content, (err) => {
 //Use the createServer() method to create an HTTP server.
 
 //The function passed into the http.createServer() method, will be executed when someone tries to access the computer on port 3000.
-const server = http.createServer((req, res) => {
+
+/* const server = http.createServer((req, res) => {
   res.statusCode = 200;
   res.setHeader("Content-Type", "text/plain");
   res.end("hello, world");
@@ -39,4 +42,21 @@ const server = http.createServer((req, res) => {
 
 server.listen(3000, () => {
   console.log("Server running at http://localhost:3000 ");
-});
+}); */
+
+// Path
+
+/* const directory = "/user/local";
+const fileName = "example.txt";
+
+const fullPath = path.join(directory, fileName);
+
+console.log(fullPath);
+ */
+
+// OS
+
+console.log("platform:", os.platform());
+console.log("Cpu Architecture:", os.arch());
+console.log("Total Memory:", os.totalmem());
+console.log("Free Memory:", os.freemem());
