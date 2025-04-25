@@ -2,6 +2,7 @@ const fs = require("fs");
 const http = require("http");
 const path = require("path");
 const os = require("os");
+const url = require("url");
 
 // Read file -- read content from a file
 
@@ -56,7 +57,15 @@ console.log(fullPath);
 
 // OS
 
-console.log("platform:", os.platform());
+/* console.log("platform:", os.platform());
 console.log("Cpu Architecture:", os.arch());
 console.log("Total Memory:", os.totalmem());
 console.log("Free Memory:", os.freemem());
+ */
+
+// URL
+
+const myUrl = new URL("http://example.com:8080/path/dip?query=hello#hash");
+console.log("Host", myUrl.host);
+console.log("Pathname", myUrl.pathname);
+console.log("Search Params", myUrl.searchParams.get("query"));
