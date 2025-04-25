@@ -6,6 +6,7 @@ const url = require("url");
 const crypto = require("crypto");
 const sayHello = require("./greetings");
 const math = require("./math");
+const lodash = require("lodash");
 
 // Read file -- read content from a file
 
@@ -82,9 +83,35 @@ hash.update("Hello, World!");
 console.log(hash.digest("hex"));
  */
 
-const message = sayHello("developers");
+// fetch single module
 
+/* const message = sayHello("developers");
 console.log(message);
+*/
 
-console.log(math.add(5, 3));
-console.log(math.subtract(5, 3));
+// fetch multiple module
+
+/* console.log(math.add(5, 3));
+console.log(math.subtract(5, 3)); */
+
+//ES2023 added the toReversed() method as a safe way to reverse an array without altering the original array.
+
+//The difference between toReversed() and reverse() is that the first method creates a new array, keeping the original array unchanged, while the last method alters the original array.
+
+/* const numbers = [1, 2, 3, 4, 5];
+const reversed = numbers.toReversed();
+
+console.log(numbers);
+console.log(reversed); */
+
+/* const number = [1, 2, 3, 4, 5];
+const reversedd = number.reverse();
+
+console.log(number);
+console.log(reversedd); */
+
+const numbers = [1, 2, 3, 4, 5];
+const reversed = lodash.reverse(numbers);
+
+console.log(numbers);
+console.log(reversed);
