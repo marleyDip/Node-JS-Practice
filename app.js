@@ -3,6 +3,9 @@ const http = require("http");
 const path = require("path");
 const os = require("os");
 const url = require("url");
+const crypto = require("crypto");
+const sayHello = require("./greetings");
+const math = require("./math");
 
 // Read file -- read content from a file
 
@@ -65,7 +68,23 @@ console.log("Free Memory:", os.freemem());
 
 // URL
 
-const myUrl = new URL("http://example.com:8080/path/dip?query=hello#hash");
+/* const myUrl = new URL("http://example.com:8080/path/dip?query=hello#hash");
 console.log("Host", myUrl.host);
 console.log("Pathname", myUrl.pathname);
 console.log("Search Params", myUrl.searchParams.get("query"));
+ */
+
+// Crypto
+
+/* const hash = crypto.createHash("sha256");
+hash.update("Hello, World!");
+
+console.log(hash.digest("hex"));
+ */
+
+const message = sayHello("developers");
+
+console.log(message);
+
+console.log(math.add(5, 3));
+console.log(math.subtract(5, 3));
