@@ -7,6 +7,7 @@ const crypto = require("crypto");
 const sayHello = require("./greetings");
 const math = require("./math");
 const lodash = require("lodash");
+const { finished } = require("stream");
 
 // Read file -- read content from a file
 
@@ -119,7 +120,7 @@ console.log(reversed); */
 
 // File System (Streams) -- Readable stream
 
-const readableStream = fs.createReadStream("example.txt", { encoding: "utf8" });
+/* const readableStream = fs.createReadStream("example.txt", { encoding: "utf8" });
 
 readableStream.on("data", (chunk) => {
   console.log(chunk);
@@ -131,4 +132,17 @@ readableStream.on("end", () => {
 
 readableStream.on("error", (err) => {
   console.log("Error", err);
+}); */
+
+// File System (Streams) -- Writable stream
+
+
+const writableStream = fs.createWriteStream("output2.txt");
+
+writableStream.write("hello, ");
+writableStream.write("world! from bangladesh");
+writableStream.end();
+
+writableStream.on("finish", () => {
+  console.log("finished writing to the file");
 });
