@@ -136,8 +136,7 @@ readableStream.on("error", (err) => {
 
 // File System (Streams) -- Writable stream
 
-
-const writableStream = fs.createWriteStream("output2.txt");
+/* const writableStream = fs.createWriteStream("output2.txt");
 
 writableStream.write("hello, ");
 writableStream.write("world! from bangladesh");
@@ -145,4 +144,16 @@ writableStream.end();
 
 writableStream.on("finish", () => {
   console.log("finished writing to the file");
+}); */
+
+// Piping Streams
+
+const readableStream = fs.createReadStream("example.txt");
+
+const writableStream = fs.createWriteStream("example-output.txt");
+
+readableStream.pipe(writableStream);
+
+writableStream.on("finish", () => {
+  console.log("File Copied Successfully ");
 });
