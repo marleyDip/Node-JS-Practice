@@ -160,7 +160,7 @@ writableStream.on("finish", () => {
 
 // For Large file
 
-const readline = require("readline");
+/* const readline = require("readline");
 
 const readableStream = fs.createReadStream("example.txt");
 
@@ -172,4 +172,50 @@ r1.on("line", (line) => {
 
 r1.on("close", () => {
   console.log("Finished Processing the file");
+});
+ */
+
+// Creating asynchronous Directory
+
+/* fs.mkdir("newDirectory", (err) => {
+  if (err) {
+    return console.error("error creating directory");
+  }
+  console.log("directory created successfully");
+}); */
+
+//creating synchronous directory
+
+/* fs.mkdirSync("newDirectory2");
+console.log("directory created successfully"); */
+
+// Reading Directory
+
+/* fs.readdir("./", (err, files) => {
+  if (err) {
+    return console.error("error reading directory:", err);
+  }
+  console.log("directory content", files);
+}); */
+
+/* const files = fs.readdirSync("./");
+console.log("Directory Content:", files); */
+
+// Check Directory exists or not
+
+/* const dirName = "newDirectory3";
+
+if (fs.existsSync(dirName)) {
+  console.log("Directory Exist");
+} else {
+  console.log("directory does not exist");
+} */
+
+// remove directory
+
+fs.rmdir("newDirectory", (err) => {
+  if (err) {
+    return console.log("Error removing directory", err);
+  }
+  console.log("Directory removed successfully");
 });
