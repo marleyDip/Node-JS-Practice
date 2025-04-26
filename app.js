@@ -148,7 +148,7 @@ writableStream.on("finish", () => {
 
 // Piping Streams
 
-const readableStream = fs.createReadStream("example.txt");
+/* const readableStream = fs.createReadStream("example.txt");
 
 const writableStream = fs.createWriteStream("example-output.txt");
 
@@ -156,4 +156,20 @@ readableStream.pipe(writableStream);
 
 writableStream.on("finish", () => {
   console.log("File Copied Successfully ");
+}); */
+
+// For Large file
+
+const readline = require("readline");
+
+const readableStream = fs.createReadStream("example.txt");
+
+const r1 = readline.createInterface({ input: readableStream });
+
+r1.on("line", (line) => {
+  console.log("Line:", line);
+});
+
+r1.on("close", () => {
+  console.log("Finished Processing the file");
 });
