@@ -110,8 +110,25 @@ const reversedd = number.reverse();
 console.log(number);
 console.log(reversedd); */
 
-const numbers = [1, 2, 3, 4, 5];
+// Lodash
+/* const numbers = [1, 2, 3, 4, 5];
 const reversed = lodash.reverse(numbers);
 
 console.log(numbers);
-console.log(reversed);
+console.log(reversed); */
+
+// File System (Streams) -- Readable stream
+
+const readableStream = fs.createReadStream("example.txt", { encoding: "utf8" });
+
+readableStream.on("data", (chunk) => {
+  console.log(chunk);
+});
+
+readableStream.on("end", () => {
+  console.log("finished reading the file");
+});
+
+readableStream.on("error", (err) => {
+  console.log("Error", err);
+});
