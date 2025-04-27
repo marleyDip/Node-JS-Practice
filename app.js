@@ -213,9 +213,27 @@ if (fs.existsSync(dirName)) {
 
 // remove directory
 
-fs.rmdir("newDirectory", (err) => {
+/* fs.rmdir("newDirectory", (err) => {
   if (err) {
     return console.log("Error removing directory", err);
   }
   console.log("Directory removed successfully");
-});
+}); */
+
+// Remove a file from a directory
+
+/* fs.rm("newDirectory2", { recursive: true }, (err) => {
+  if (err) {
+    return console.error("Error removing directory");
+  }
+  console.log("Directory File Removed successfully");
+}); */
+
+// Rename a folder
+
+/* fs.rename("folder2", "folder3", (err) => {
+  if (err) {
+    return console.error("Error renaming directory");
+  }
+  console.log("Directory rename successfully");
+}); */
