@@ -237,3 +237,29 @@ if (fs.existsSync(dirName)) {
   }
   console.log("Directory rename successfully");
 }); */
+
+// Event Emitter
+const eventEmitter = require("events");
+
+const emitter = new eventEmitter();
+
+emitter.on("test1", () => {
+  console.log("An event has occurred in test1");
+});
+
+emitter.on("test1", () => {
+  console.log("An event has occurred in test2");
+});
+
+// Error listener (for catching and logging errors)
+emitter.on("erro", (err) => {
+  console.error("Error event:", err.message);
+});
+
+try {
+  emitter.emit("test1");
+  emitter.removeListener("test1");
+  emitter.emit("test1");
+} catch (error) {
+  emitter.emit("erro", error);
+}
